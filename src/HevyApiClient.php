@@ -11,7 +11,7 @@ class HevyApiClient
     public function __construct($apiKey)
     {
         $this->client = new Client([
-            'base_uri' => 'https://api.hevyapp.com',
+            'base_uri' => 'https://api.hevyapp.com/v1',
             'headers' => [
                 'Authorization' => 'Bearer ' . $apiKey,
                 'Accept' => 'application/json',
