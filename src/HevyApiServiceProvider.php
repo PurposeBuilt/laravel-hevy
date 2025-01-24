@@ -21,6 +21,7 @@ class HevyApiServiceProvider extends ServiceProvider
 
     public function boot()
     {
+        dd(__DIR__ . '/../config/hevy.php');
         // Publish configuration file
         $this->publishes([
             __DIR__ . '/../config/hevy.php' => config_path('hevy.php'),
