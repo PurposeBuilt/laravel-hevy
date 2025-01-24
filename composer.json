@@ -1,11 +1,12 @@
 {
     "name": "purposebuiltscott/laravel-hevy",
     "description": "Laravel SDK for accessing the Hevy API",
+    "version": "1.0.0",
     "require": {
         "php": "^8.2",
-        "guzzlehttp/guzzle": "^7.9",
-        "illuminate/support": "^11.40",
-        "illuminate/contracts": "^11.40"
+        "guzzlehttp/guzzle": "^7.2",
+        "illuminate/support": "^11.00",
+        "illuminate/contracts": "^11.00"
     },
     "license": "MIT",
     "autoload": {
