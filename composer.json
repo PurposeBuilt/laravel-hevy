@@ -1,0 +1,25 @@
+{
+    "name": "purposebuiltscott/laravel-hevy",
+    "description": "Laravel SDK for accessing the Hevy API",
+    "require": {
+        "php": "^8.2",
+        "guzzlehttp/guzzle": "^7.9",
+        "illuminate/support": "^11.40",
+        "illuminate/contracts": "^11.40"
+    },
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Purposebuiltscott\\LaravelHevy\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Scott Yewell",
+            "email": "scott@purposebuiltsoftware.com"
+        }
+    ],
+    "require-dev": {
+        "laravel/framework": "^11.40"
+    }
+}
