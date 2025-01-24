@@ -14,9 +14,9 @@ class HevyApiClient
             'base_uri' => 'https://api.hevyapp.com/v1',
             'headers' => [
                 'api-key' => $apiKey,
-                'accept' => 'application/json',
+                'Accept' => 'application/json',
             ],
-            'timeout' => 10, // Set a timeout for requests
+            'timeout' => 10,
         ]);
     }
 
@@ -24,14 +24,13 @@ class HevyApiClient
     {
         try {
             $response = $this->client->request($method, $endpoint, [
-                'json' => $data,
+                'query' => $data, // Using 'query' for GET requests with parameters
             ]);
 
             return json_decode($response->getBody()->getContents(), true);
         } catch (RequestException $e) {
-            // Handle HTTP errors (4xx, 5xx)
             throw new \Exception(
-                'Hevy API error: ' . $e->getResponse()->getBody()->getContents(),
+                'Hevy API error: ' . ($e->getResponse() ? $e->getResponse()->getBody()->getContents() : $e->getMessage()),
                 $e->getCode()
             );
         }
@@ -45,9 +44,12 @@ class HevyApiClient
     }
 
     // Workout Endpoints
-    public function getWorkouts()
+    public function getWorkouts($page = 1, $pageSize = 5)
     {
-        return $this->request('GET', '/workouts');
+        return $this->request('GET', '/workouts', [
+            'page' => $page,
+            'pageSize' => $pageSize,
+        ]);
     }
 
     public function getWorkoutById($id)
