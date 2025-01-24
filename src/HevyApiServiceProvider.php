@@ -9,7 +9,6 @@ class HevyApiServiceProvider extends ServiceProvider
 {
     public function register()
     {
-        dd(__DIR__ . '/../config/hevy.php');
         $this->mergeConfigFrom(__DIR__ . '/config/hevy.php', 'hevy');
 
         $this->app->singleton(HevyApiClient::class, function () {
@@ -21,10 +20,9 @@ class HevyApiServiceProvider extends ServiceProvider
 
     public function boot()
     {
-        dd(__DIR__ . '/../config/hevy.php');
         // Publish configuration file
         $this->publishes([
-            __DIR__ . '/../config/hevy.php' => config_path('hevy.php'),
+            __DIR__ . '/config/hevy.php' => config_path('hevy.php'),
             //__DIR__ . '/config/hevy.php' => config_path('hevy.php'),
         ], 'config');
     }
