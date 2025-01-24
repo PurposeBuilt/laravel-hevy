@@ -3,7 +3,7 @@
 namespace Purposebuiltscott\LaravelHevy;
 
 use Illuminate\Support\ServiceProvider;
-use function base_path;
+use Illuminate\Support\Facades\Config;
 
 class HevyApiServiceProvider extends ServiceProvider
 {
@@ -13,7 +13,7 @@ class HevyApiServiceProvider extends ServiceProvider
 
         $this->app->singleton(HevyApiClient::class, function () {
             return new HevyApiClient(
-                config('hevy.api_key')
+                Config::get('hevy.api_key')
             );
         });
     }
@@ -22,7 +22,7 @@ class HevyApiServiceProvider extends ServiceProvider
     {
         // Publish configuration file
         $this->publishes([
-            __DIR__ . '/config/hevy.php' => base_path('config/hevy.php'),
+            __DIR__ . '/config/hevy.php' => config_path('hevy.php'),
         ], 'config');
     }
 }
