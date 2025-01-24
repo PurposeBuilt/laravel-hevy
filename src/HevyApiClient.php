@@ -13,8 +13,8 @@ class HevyApiClient
         $this->client = new Client([
             'base_uri' => 'https://api.hevyapp.com/v1',
             'headers' => [
-                'Authorization' => 'Bearer ' . $apiKey,
-                'Accept' => 'application/json',
+                'api-key' => $apiKey,
+                'accept' => 'application/json',
             ],
             'timeout' => 10, // Set a timeout for requests
         ]);
