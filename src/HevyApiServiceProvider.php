@@ -22,7 +22,8 @@ class HevyApiServiceProvider extends ServiceProvider
     {
         // Publish configuration file
         $this->publishes([
-            __DIR__ . '/config/hevy.php' => config_path('hevy.php'),
+            __DIR__ . '/../config/hevy.php' => config_path('hevy.php'),
+            //__DIR__ . '/config/hevy.php' => config_path('hevy.php'),
         ], 'config');
     }
 }
