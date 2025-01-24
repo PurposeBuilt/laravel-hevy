@@ -9,6 +9,7 @@ class HevyApiServiceProvider extends ServiceProvider
 {
     public function register()
     {
+        dd(__DIR__ . '/../config/hevy.php');
         $this->mergeConfigFrom(__DIR__ . '/config/hevy.php', 'hevy');
 
         $this->app->singleton(HevyApiClient::class, function () {
