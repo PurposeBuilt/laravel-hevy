@@ -22,5 +22,14 @@
     ],
     "require-dev": {
         "laravel/framework": "^11.40"
-    }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Purposebuiltscott\\LaravelHevy\\HevyApiServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
