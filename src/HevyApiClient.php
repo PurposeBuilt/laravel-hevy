@@ -145,5 +145,28 @@ class HevyApiClient
         return $this->request('DELETE', "measurements/$id");
     }
 
+    /**
+     * Get workout events
+     *
+     * @param int $page
+     * @param int $pageSize
+     * @param \Carbon\Carbon|null $since
+     * @return array
+     * @throws \Exception
+     */
+    public function getWorkoutEvents($page = 1, $pageSize = 5, ?\Carbon\Carbon $since = null)
+    {
+        $params = [
+            'page' => $page,
+            'pageSize' => $pageSize,
+        ];
+
+        if ($since) {
+            $params['since'] = $since->utc()->format('Y-m-d\TH:i:s\Z');
+        }
+
+        return $this->request('GET', 'workouts/events', $params);
+    }
+    
 }
 
