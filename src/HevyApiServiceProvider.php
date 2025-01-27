@@ -11,10 +11,9 @@ class HevyApiServiceProvider extends ServiceProvider
     {
         $this->mergeConfigFrom(__DIR__ . '/config/hevy.php', 'hevy');
 
-        $this->app->singleton(HevyApiClient::class, function () {
-            return new HevyApiClient(
-                Config::get('hevy.api_key')
-            );
+        $this->app->bind(HevyApiClient::class, function ($app, array $parameters = []) {
+            $apiKey = $parameters['api_key'] ?? null;
+            return new HevyApiClient($apiKey);
         });
     }
 
